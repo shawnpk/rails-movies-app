@@ -1,7 +1,8 @@
 class Movie < ActiveRecord::Base
 
-  RATINGS = %W(G PG PG-13 R NC-17)
+  has_many :reviews, dependent: :destroy
 
+  RATINGS = %W(G PG PG-13 R NC-17)
   validates :rating, inclusion: { in: RATINGS }
   validates :title, :released_on, :duration, presence: true
   validates :description, length: { minimum: 25 }
