@@ -4,6 +4,7 @@
   <article>
     <header>
       <h2><%= link_to(movie.title, movie) %></h2>
+      <%= image_for(movie) %>
     </header>
     <p>
       <%= truncate(movie.description, length: 40, separator: ' ') %>
