@@ -10,11 +10,13 @@
         <%= f.label :name %>
         <%= f.text_field :name, size: 40, autofocus: true %>
       </li>
-      <li class="required">
+      <li class="required stars">
         <%= f.label :stars %>
-        <%= f.select :stars,
-                     Review::STARS,
-                     prompt: 'Pick One' %>
+        <% Review::STARS.each do |star| %>
+          <span class="star">
+            <%= f.radio_button :stars, star %> <%= star %>
+          </span>
+        <% end %>
       </li>
       <li class="required">
         <%= f.label :comment %>
